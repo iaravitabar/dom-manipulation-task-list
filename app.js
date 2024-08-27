@@ -143,10 +143,19 @@ function deleteTaskHandler(taskElement) {
 // 4 - Funcion
 // Crear un boton para vaciar/eliminar todas las tareas
 function deleteAllTaskHandler() {
-
+  const taskContainer = document.querySelector('#taskList'); //<ul id="taskList"></ul> en HTML
+  if (taskContainer){
+    taskContainer.innerHTML= '';
+    redirectWhenNoTask();
+  }
 }
 
 // 5 - Funcion
 // Si ya no quedan tareas navegar programaticamente
 // a www.youtube.com
-function redirectWhenNoTask() {}
+function redirectWhenNoTask() {
+  const taskContainer = document.querySelector('#taskList');
+  if (taskContainer && taskContainer.children.length === 0){
+    window.location.href = 'https://www.youtube.com';
+  }
+}
